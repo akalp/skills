@@ -12,7 +12,7 @@ These are procedures, not an orchestrator. The active runtime (T3 Code, HERDR, a
 | `deliver-issue` | Issue owner | Taking one issue from implementation to a review-clean PR |
 | `review-pr` | Reviewer | Reviewing an exact PR commit, including design drift for tier L |
 | `design-work` | Designer | Writing a design doc for tier L work |
-| `review-design` | Reviewer | One independent design review; follow-up or second opinion only when triggered |
+| `review-design` | Reviewer | One independent design review by default; focused follow-up or exceptional second opinion only if justified |
 | `tool-discovery` | Any | Learning a CLI or tool whose interface may have changed |
 
 ## Process tiers
@@ -23,7 +23,7 @@ Every issue gets a tier before work starts. Process cost scales with risk, not w
 |---|---|---|
 | S | Clear, small, low risk | Implement, test, one independent review |
 | M | Multi-file or partly ambiguous, normal risk | Short plan in the issue, review by a different model family |
-| L | Architecture, security, data integrity, high failure cost | Design doc, one independent design review by default, human approval, PR review with drift check; extra review only per `review.design_second_opinion` |
+| L | Architecture, security, data integrity, high failure cost | Design doc, one independent design review by default, human approval, PR review with drift check; extra review only when justified |
 
 A one-line change can be tier L if its risk is high.
 
@@ -37,8 +37,11 @@ Skills work standalone with the defaults below. If a private operating policy is
 | `review.fix_cycle_limit` | 3 | Fix/re-review cycles before escalating to a stronger model or a human |
 | `review.blocking_severity` | PR: critical, high. Design: blocker, major | Findings that block acceptance |
 | `review.different_family` | Required for M and L, preferred for S | Reviewer must use a different model family than the implementer |
-| `review.design_second_opinion` | Only for an irreversible change without a tested rollback, or an architecture disagreement still unresolved after the first review and its follow-up. Tier L alone is never a reason. | When a second independent design reviewer may be started; the coordinator records which trigger applied |
 | `approval.human_required` | Tier L, destructive operations, security changes, policy changes | Work that needs an explicit human decision |
+| `routing.bootstrap` | None; rely on known facts without inventing entitlements | Dated known subscriptions, incident lessons and economical shortlist |
+| `routing.capacity` | No configured numeric cap; choose conservative, explicit capacity before launching | Active issue-owner, premium-worker and wave limits |
+| `routing.discovery` | Reuse confirmed session-local tool and model facts; verify live quota before activation | Avoid repeated full-catalog research or agent-based discovery |
+| `routing.shortlist` | None; verify capable candidates | Preferred economic candidates; not guaranteed available |
 | `routing.table` | None; choose the cheapest model you judge capable and say so | Tier and role to model pool mapping |
 | `quota.unknown` | Treat as unavailable | What to do when a required quota window cannot be read |
 
@@ -46,7 +49,7 @@ If a setting is missing from the private policy, use the default and state that 
 
 ## Terms
 
-- **Wave**: a batch of issues whose dependencies are satisfied and can run in parallel.
+- **Wave**: a capacity-limited batch of issues whose dependencies are satisfied; all ready issues do not have to run in parallel.
 - **Pool**: the subscription or billing entitlement a model call consumes. The harness name does not identify the pool; a Codex model inside OpenCode may use the same ChatGPT entitlement as Codex CLI.
 - **Fresh context**: a new agent session that receives only the artifact under review and its sources, not the author's conversation.
 - **Design drift**: a difference between the merged implementation and the approved design.
