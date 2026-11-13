@@ -46,6 +46,7 @@ Skills work standalone with the defaults below. If a private operating policy is
 | `quota.unknown` | Treat as unavailable | What to do when a required quota window cannot be read |
 | `memory.start_read` | Read only the repository's own instructions and the issue | What a coordinator or issue owner reads before starting work on a repository (for example a short project index and an open handoff) |
 | `wave.close` | Report the wave; record only verified, reusable lessons | What the coordinator does to close a wave (memory, handoffs, commit) |
+| `github.bookkeeping` | Record claims, handoffs and state changes on the issue using the project's own conventions | What the coordinator keeps current on GitHub: claim comments, in-progress labels, handoff and reassignment comments, close-out |
 
 If a setting is missing from the private policy, use the default and state that you did.
 
