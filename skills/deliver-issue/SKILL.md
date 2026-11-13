@@ -18,7 +18,7 @@ You have been assigned an issue as its owner, or you are working on one issue al
 
 ## Procedure
 
-1. **Confirm the assignment.** Check you are the only writer in this worktree, the base is current and dependencies are merged. For tier M, write a short plan as an issue comment before coding. For tier L, read the approved design at its pinned commit.
+1. **Confirm the assignment.** Read what `memory.start_read` names for this repository. Check you are the only writer in this worktree, the base is current and dependencies are merged. For tier M, write a short plan as an issue comment before coding. For tier L, read the approved design at its pinned commit.
 2. **Implement** the agreed scope with the smallest robust change. Do not drop requirements to make it smaller, and do not add unrequested changes.
 3. **Verify** using the project's own commands (find them in package config or docs): format, lint, type check, tests. Add tests for new behavior. Report only commands you actually ran and their real results.
 4. **Open the PR** with: issue link, design link if any, acceptance checklist, commands run and results, risks, rollback notes, head SHA.
@@ -26,7 +26,7 @@ You have been assigned an issue as its owner, or you are working on one issue al
 6. **Fix and re-review.** Fix verified blocking findings, re-run tests, request re-review of the changed code. After `review.fix_cycle_limit` cycles on the same root cause, stop and escalate.
 7. **Hand off** to the coordinator.
 
-If interrupted (quota, crash, harness switch), write a handoff in private memory, or as a PR comment if private memory is unavailable: current head SHA, what is done, exact next step, open findings.
+If interrupted (quota, crash, harness switch), write a handoff in private memory, or as a PR comment if private memory is unavailable: branch, worktree, remote and local head SHA, unpushed or polluted state, what is done with test results, exact next step, open findings, and the few files the next owner must read, so nobody re-scans the codebase.
 
 ## Output
 

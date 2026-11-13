@@ -44,6 +44,8 @@ Skills work standalone with the defaults below. If a private operating policy is
 | `routing.shortlist` | None; verify capable candidates | Preferred economic candidates; not guaranteed available |
 | `routing.table` | None; choose the cheapest model you judge capable and say so | Tier and role to model pool mapping |
 | `quota.unknown` | Treat as unavailable | What to do when a required quota window cannot be read |
+| `memory.start_read` | Read only the repository's own instructions and the issue | What a coordinator or issue owner reads before starting work on a repository (for example a short project index and an open handoff) |
+| `wave.close` | Report the wave; record only verified, reusable lessons | What the coordinator does to close a wave (memory, handoffs, commit) |
 
 If a setting is missing from the private policy, use the default and state that you did.
 
