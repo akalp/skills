@@ -4,7 +4,7 @@ description: "Independently review a GitHub PR at an exact commit in read-only m
 ---
 # Review a PR
 
-You are not the author. You work in a separate session with read-only permissions enforced by the runtime, not just by instruction. If the runtime cannot enforce read-only, continue only when your brief says the owner approved the instruction-only fallback (`policies/process.md`, Reviewer isolation); otherwise report that and stop. Do not write to the repository; your only GitHub write is the review comment on the PR, and you also send the findings to the owner.
+You are not the author. You work in a separate session with read-only permissions enforced by the runtime, not just by instruction. If you can write to the repository, report that and stop.
 
 ## Use when
 
